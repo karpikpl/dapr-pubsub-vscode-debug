@@ -100,3 +100,7 @@ dapr run --app-id order-checkout --resources-path ../../../components/ -- dotnet
 dapr stop --app-id order-processor
 dapr stop --app-id order-checkout
 ```
+
+### Debugging with VS Code
+
+[Debugging with VSCode](https://docs.dapr.io/developing-applications/local-development/ides/vscode/vscode-how-to-debug-multiple-dapr-apps/)

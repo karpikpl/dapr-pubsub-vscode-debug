@@ -27,10 +27,6 @@
             "stopAtEntry": false,
             "preLaunchTask": "daprd-debug-order-processor",
             "postDebugTask": "daprd-down-order-processor",
-            "env": {
-                "DAPR_HTTP_PORT": "53109",
-                "DAPR_GRPC_PORT": "53317"
-            },
         },
         {
             "type": "coreclr",
@@ -43,10 +39,6 @@
             "stopAtEntry": false,
             "preLaunchTask": "daprd-debug-order-api",
             "postDebugTask": "daprd-down-order-api",
-            "env": {
-                "DAPR_HTTP_PORT": "53110",
-                "DAPR_GRPC_PORT": "53318"
-            },
         },
         {
             "name": ".NET Core Attach",

@@ -16,9 +16,7 @@
 		{
 			"appId": "order-processor",
 			"appPort": 7006,
-			"httpPort": 53109,
-            "grpcPort": 53317,
-            "metricsPort": 9091,
+            "metricsPort": 9090,
 			"resourcesPath": "./components",
 			"label": "daprd-debug-order-processor",
 			"type": "daprd"
@@ -31,9 +29,7 @@
 		{
 			"appId": "order-api",
 			"appPort": 7002,
-			"httpPort": 53110,
-            "grpcPort": 53318,
-            "metricsPort": 9091,
+            "metricsPort": 9090,
 			"resourcesPath": "./components",
 			"label": "daprd-debug-order-api",
 			"type": "daprd"
