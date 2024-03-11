@@ -1,0 +1,47 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"appId": "order-checkout",
+			"label": "daprd-debug-order-checkout",
+			"type": "daprd",
+			"metricsPort": 9090,
+			"resourcesPath": "./components"
+		},
+		{
+			"appId": "order-checkout",
+			"label": "daprd-down-order-checkout",
+			"type": "daprd-down"
+		},
+		{
+			"appId": "order-processor",
+			"appPort": 7006,
+			"httpPort": 53109,
+            "grpcPort": 53317,
+            "metricsPort": 9091,
+			"resourcesPath": "./components",
+			"label": "daprd-debug-order-processor",
+			"type": "daprd"
+		},
+		{
+			"appId": "order-processor",
+			"label": "daprd-down-order-processor",
+			"type": "daprd-down"
+		},
+		{
+			"appId": "order-api",
+			"appPort": 7002,
+			"httpPort": 53110,
+            "grpcPort": 53318,
+            "metricsPort": 9091,
+			"resourcesPath": "./components",
+			"label": "daprd-debug-order-api",
+			"type": "daprd"
+		},
+		{
+			"appId": "order-api",
+			"label": "daprd-down-order-api",
+			"type": "daprd-down"
+		}
+	]
+}

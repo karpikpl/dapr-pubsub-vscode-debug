@@ -8,7 +8,7 @@ Visit [this](https://docs.dapr.io/developing-applications/building-blocks/pubsub
 
 This quickstart includes one publisher:
 
-- Dotnet client message generator `checkout` 
+- Dotnet client message generator `order-checkout` 
 
 And one subscriber: 
  
@@ -24,7 +24,7 @@ This section shows how to run both applications at once using [multi-app run tem
 name: Run multi app run template
 expected_stdout_lines:
   - 'Started Dapr with app id "order-processor"'
-  - 'Started Dapr with app id "checkout-sdk"'
+  - 'Started Dapr with app id "order-checkout"'
   - 'Published data: Order { OrderId = 2 }'
   - 'Subscriber received : Order { OrderId = 2 }'
 expected_stderr_lines:
@@ -42,25 +42,25 @@ dapr run -f .
 The terminal console output should look similar to this:
 
 ```text
-== APP - checkout-sdk == Published data: Order { OrderId = 1 }
+== APP - order-checkout == Published data: Order { OrderId = 1 }
 == APP - order-processor == Subscriber received : Order { OrderId = 1 }
-== APP - checkout-sdk == Published data: Order { OrderId = 2 }
+== APP - order-checkout == Published data: Order { OrderId = 2 }
 == APP - order-processor == Subscriber received : Order { OrderId = 2 }
-== APP - checkout-sdk == Published data: Order { OrderId = 3 }
+== APP - order-checkout == Published data: Order { OrderId = 3 }
 == APP - order-processor == Subscriber received : Order { OrderId = 3 }
-== APP - checkout-sdk == Published data: Order { OrderId = 4 }
+== APP - order-checkout == Published data: Order { OrderId = 4 }
 == APP - order-processor == Subscriber received : Order { OrderId = 4 }
-== APP - checkout-sdk == Published data: Order { OrderId = 5 }
+== APP - order-checkout == Published data: Order { OrderId = 5 }
 == APP - order-processor == Subscriber received : Order { OrderId = 5 }
-== APP - checkout-sdk == Published data: Order { OrderId = 6 }
+== APP - order-checkout == Published data: Order { OrderId = 6 }
 == APP - order-processor == Subscriber received : Order { OrderId = 6 }
-== APP - checkout-sdk == Published data: Order { OrderId = 7 }
+== APP - order-checkout == Published data: Order { OrderId = 7 }
 == APP - order-processor == Subscriber received : Order { OrderId = 7 }
-== APP - checkout-sdk == Published data: Order { OrderId = 8 }
+== APP - order-checkout == Published data: Order { OrderId = 8 }
 == APP - order-processor == Subscriber received : Order { OrderId = 8 }
-== APP - checkout-sdk == Published data: Order { OrderId = 9 }
+== APP - order-checkout == Published data: Order { OrderId = 9 }
 == APP - order-processor == Subscriber received : Order { OrderId = 9 }
-== APP - checkout-sdk == Published data: Order { OrderId = 10 }
+== APP - order-checkout == Published data: Order { OrderId = 10 }
 == APP - order-processor == Subscriber received : Order { OrderId = 10 }
 ```
 
@@ -91,12 +91,12 @@ dapr run --app-id order-processor --resources-path ../../../components/ --app-po
    
 ```bash
 cd ./checkout
-dapr run --app-id checkout-sdk --resources-path ../../../components/ -- dotnet run
+dapr run --app-id order-checkout --resources-path ../../../components/ -- dotnet run
 ```
 
 2. Stop and clean up application processes
 
 ```bash
 dapr stop --app-id order-processor
-dapr stop --app-id checkout-sdk
+dapr stop --app-id order-checkout
 ```

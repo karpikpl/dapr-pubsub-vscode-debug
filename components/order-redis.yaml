@@ -10,5 +10,6 @@ spec:
     value: localhost:6379
   - name: redisPassword
     value: ""
+# this will share state between apps using this component
   - name: keyPrefix
     value: name

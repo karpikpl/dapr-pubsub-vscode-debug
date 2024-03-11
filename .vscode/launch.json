@@ -1,0 +1,67 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "coreclr",
+            "request": "launch",
+            "name": "Checkout Dotnet Dapr",
+            "program": "${workspaceFolder}/checkout/bin/Debug/net8.0/checkout.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/checkout",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "preLaunchTask": "daprd-debug-order-checkout",
+            "postDebugTask": "daprd-down-order-checkout",
+        },
+        {
+            "type": "coreclr",
+            "request": "launch",
+            "name": "Processor Dotnet Dapr",
+            "program": "${workspaceFolder}/order-processor/bin/Debug/net8.0/order-processor.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/order-processor",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "preLaunchTask": "daprd-debug-order-processor",
+            "postDebugTask": "daprd-down-order-processor",
+            "env": {
+                "DAPR_HTTP_PORT": "53109",
+                "DAPR_GRPC_PORT": "53317"
+            },
+        },
+        {
+            "type": "coreclr",
+            "request": "launch",
+            "name": "API Dotnet Dapr",
+            "program": "${workspaceFolder}/order-api/bin/Debug/net8.0/order-api.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/order-api",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "preLaunchTask": "daprd-debug-order-api",
+            "postDebugTask": "daprd-down-order-api",
+            "env": {
+                "DAPR_HTTP_PORT": "53110",
+                "DAPR_GRPC_PORT": "53318"
+            },
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Order Dotnet Dapr",
+            "configurations": [
+                "Processor Dotnet Dapr",
+                "Checkout Dotnet Dapr",
+                "API Dotnet Dapr"
+            ]
+        }
+    ]
+}

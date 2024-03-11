@@ -10,6 +10,6 @@ apps:
     appDirPath: ./order-processor/
     appPort: 7006
     command: ["dotnet", "run"]
-  - appID: checkout-sdk
+  - appID: order-checkout
     appDirPath: ./checkout/
     command: ["dotnet", "run"]
