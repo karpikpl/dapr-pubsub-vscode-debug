@@ -6,7 +6,23 @@
 			"label": "daprd-debug-order-checkout",
 			"type": "daprd",
 			"metricsPort": 9090,
-			"resourcesPath": "./components"
+			"httpPort": 3502,
+			"grpcPort": 50002,
+			"resourcesPath": "./components",
+			"problemMatcher": {
+				"pattern": [
+					{
+						"regexp": ".",
+						"file": 1,
+						"location": 2,
+						"message": 3
+					}
+				],
+				"background": {
+					"beginsPattern": "^.*starting Dapr Runtime",
+					"endsPattern": "^.*dapr initialized"
+				}
+			}
 		},
 		{
 			"appId": "order-checkout",
@@ -16,7 +32,9 @@
 		{
 			"appId": "order-processor",
 			"appPort": 7006,
-            "metricsPort": 9090,
+			"metricsPort": 9091,
+			"httpPort": 3503,
+			"grpcPort": 50003,
 			"resourcesPath": "./components",
 			"label": "daprd-debug-order-processor",
 			"type": "daprd"
@@ -29,7 +47,9 @@
 		{
 			"appId": "order-api",
 			"appPort": 7002,
-            "metricsPort": 9090,
+			"metricsPort": 9092,
+			"httpPort": 3504,
+			"grpcPort": 50004,
 			"resourcesPath": "./components",
 			"label": "daprd-debug-order-api",
 			"type": "daprd"
@@ -38,6 +58,12 @@
 			"appId": "order-api",
 			"label": "daprd-down-order-api",
 			"type": "daprd-down"
+		},
+		{
+			"label": "dapr",
+			"type": "dapr",
+			"runFile": "./dapr.yaml",
+			"problemMatcher": "$dapr"
 		}
 	]
 }
